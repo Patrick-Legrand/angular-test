@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  config: {
+    apiUrl: 'http://my-api.com:4000'
+  }
 };
