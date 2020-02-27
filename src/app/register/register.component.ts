@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AlertService, UserService, AuthenticationService } from '../_services';
+import { AlertService } from "../shared/alert/alert.service";
+import { UserService } from "../user/user.service";
+import { AuthService } from '../auth/auth.service';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -14,12 +16,12 @@ export class RegisterComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private authenticationService: AuthenticationService,
+        private authService: AuthService,
         private userService: UserService,
         private alertService: AlertService
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
+        if (this.authService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }

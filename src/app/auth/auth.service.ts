@@ -5,10 +5,10 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
-import { User } from '../_models';
+import { User } from '../user/user';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
+export class AuthService {
     private config = environment.config;
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;

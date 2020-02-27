@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from './_services';
-import { User } from './_models';
-
-import './_content/app.scss';
+import { AuthService } from './auth/auth.service';
+import { User } from './user/user';
 
 import { environment } from '../environments/environment';
 
@@ -19,13 +17,13 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authService: AuthService
   ) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   logout() {
-    this.authenticationService.logout();
+    this.authService.logout();
     this.router.navigate(['/login']);
   }
 }

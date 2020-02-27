@@ -1,8 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '../_models';
-import { UserService, AuthenticationService } from '../_services';
+import { User } from '../user/user';
+import { UserService } from '../user/user.service'
+import { AuthService } from '../auth/auth.service';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent implements OnInit {
@@ -10,10 +11,10 @@ export class HomeComponent implements OnInit {
     users = [];
 
     constructor(
-        private authenticationService: AuthenticationService,
+        private authService: AuthService,
         private userService: UserService
     ) {
-        this.currentUser = this.authenticationService.currentUserValue;
+        this.currentUser = this.authService.currentUserValue;
     }
 
     ngOnInit() {
