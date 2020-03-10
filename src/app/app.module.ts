@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertComponent } from './shared/alert/alert.component';
+import { BeetComponent } from './beet/beet.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { AlertComponent } from './shared/alert/alert.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        AlertComponent
+        AlertComponent,
+        BeetComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
